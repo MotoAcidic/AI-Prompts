@@ -1,4 +1,4 @@
-# Prompt for Converting Python to JavaScript `.mjs` Format
+# Prompt for Converting Python to JavaScript `.mjs` Format with Completion Indicators
 
 Convert the following Python code into JavaScript `.mjs` format. Ensure the following guidelines are met:
 
@@ -6,7 +6,7 @@ Convert the following Python code into JavaScript `.mjs` format. Ensure the foll
    Retain all comments from the original Python file and place them in the appropriate sections of the JavaScript code. Adjust comments if necessary to align with JavaScript syntax or conventions.
 
 2. **Preserve Commented-Out Code:**  
-   Any functions, blocks of code, or logic that are commented out in the original Python file must remain in the JavaScript file, translated into `.mjs` format and commented out to maintain the full integrity of the original file.
+   Any functions, blocks of code, or logic that are commented out in the original Python file must remain in the JavaScript file, translated into `.mjs` format and commented out to maintain the full integrity of the original file.  
 
    For example:  
    ```python
@@ -53,20 +53,21 @@ Convert the following Python code into JavaScript `.mjs` format. Ensure the foll
 
 9. **Incremental Conversion for Large Files:**  
    - Break down the Python code into logical sections (e.g., functions, classes, or modules) and convert each section step by step.  
-   - After completing each section, pause and indicate that the section is complete. Then wait for the next instruction to continue with the next part of the file.  
-   - Ensure the entire file is fully converted by proceeding section by section until completion.
+   - After completing each section, indicate whether:  
+     - The conversion for that section is complete.  
+     - There are more sections to convert. Prompt:  
+       *"There is more to convert. Do you want me to continue?"*  
+     - If the full file has been converted, confirm with:  
+       *"The entire file has been converted. There is nothing else to convert."*  
+   - Wait for confirmation before proceeding to the next section.
 
-## Python Code to Convert:
-```python
-<paste your Python code here>
-```
 
 ## Example Workflow:
 1. **Start Conversion:**  
    Provide the Python code with the above prompt. Copilot will begin converting the first section.
 
    - Example response from Copilot:  
-     *"Converted the first section of the file. Ready to proceed with the next section."*
+     *"Converted the first section of the file. There is more to convert. Do you want me to continue?"*
 
 2. **Continue Conversion:**  
    Use the following prompt to continue:  
@@ -74,5 +75,6 @@ Convert the following Python code into JavaScript `.mjs` format. Ensure the foll
    Continue converting the next section of the Python code, following the same guidelines as before.
    ```
 
-3. **Repeat Until Complete:**  
-   Repeat the process until the entire file is converted.
+3. **Completion Confirmation:**  
+   If the entire file is converted, Copilot should respond:  
+   *"The entire file has been converted. There is nothing else to convert."*
