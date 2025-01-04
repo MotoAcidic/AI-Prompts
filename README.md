@@ -27,6 +27,7 @@ This is normal behavior when working with complex prompts. If you encounter thes
 
 ### GitHub Copilot
 - [Python to Node.js Conversion Guide](./Copilot/PythonToNodejs.md) - A comprehensive prompt designed to work with GitHub Copilot's `/edit` command for converting Python code to Node.js format. Use this prompt by copying it into a Copilot chat session followed by your Python code when requesting edits.
+- [Python to Node.js Large Files Guide](./Copilot/PythonToNodejsLargeFiles.md) - A specialized prompt for converting large Python files to Node.js format using an incremental approach. This guide helps break down large files into manageable chunks to avoid LLM timeout issues and provides a structured process for handling complex conversions.
 
 ## Contributing
 
