@@ -1,4 +1,4 @@
-# AI-Prompts
+# Agent-Prompts
 
 A collection of carefully crafted prompts to help you get better results when working with various AI language models (LLMs).
 
@@ -25,10 +25,35 @@ This is normal behavior when working with complex prompts. If you encounter thes
 
 ## Available Prompts
 
-### GitHub Copilot
-- [Python to Node.js Conversion Guide](./Copilot/PythonToNodejs.md) - A comprehensive prompt designed to work with GitHub Copilot's `/edit` command for converting Python code to Node.js format. Use this prompt by copying it into a Copilot chat session followed by your Python code when requesting edits.
-- [Python to Node.js Large Files Guide](./Copilot/PythonToNodejsLargeFiles.md) - A specialized prompt for converting large Python files to Node.js format using an incremental approach. This guide helps break down large files into manageable chunks to avoid LLM timeout issues and provides a structured process for handling complex conversions.
-- [Python to Node.js V2 Guide](./Copilot/PythonToNodejs-V2.md) - An enhanced version of the conversion guide that combines best practices from both previous versions. It includes detailed instructions for handling commented code, preserving documentation, and managing large files with an incremental approach. Use this version when you need the most comprehensive and structured conversion process.
+### Documentation
+All prompt templates are available in the Docs folder for easy copying and pasting:
+- [Python to Node.js Conversion Guide](./Docs/PythonToNodejs.md) - A comprehensive prompt template for converting Python code to Node.js format.
+- [Python to Node.js Large Files Guide](./Docs/PythonToNodejsLargeFiles.md) - A specialized template for handling large file conversions incrementally.
+- [Python to Node.js V2 Guide](./Docs/PythonToNodejs-V2.md) - The enhanced version combining best practices from all templates.
+
+### NPM Package Usage
+This repository is also available as an npm package for programmatic usage in your projects:
+
+```bash
+npm install @MotoAcidic/Agent-Prompts
+```
+
+The package includes utility functions for working with your preferred LLM:
+
+- [pythonToNodejs.mjs](./Prompts/pythonToNodejs.mjs) - Provides structured prompts and conversion utilities
+- [index.mjs](./index.mjs) - Main entry point with the `fetchLLMPrompt` function
+
+Example usage in your project:
+```javascript
+import { fetchLLMPrompt } from '@MotoAcidic/Agent-Prompts';
+import { getInitialConversionPrompt } from '@MotoAcidic/Agent-Prompts/Prompts/pythonToNodejs.mjs';
+
+// Get the structured prompt
+const prompt = getInitialConversionPrompt();
+
+// Send to your LLM
+const response = await fetchLLMPrompt('your-llm-model', prompt);
+```
 
 ## Contributing
 
